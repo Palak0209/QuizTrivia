@@ -1,0 +1,88 @@
+﻿<Window x:Class="QuizGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizGame"
+        mc:Ignorable="d"
+        Title="Quiz Game" SizeToContent="Height">
+    <Grid Background="Linen">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--Added to add a picture animated or cartoonic representing computer science -->
+        <Image Grid.Row="0" Source="Image/image.jpg" Margin="10,20,10,0"/>
+        <!-- Link for this image is "https://teams.microsoft.com/l/message/19:21117850-624a-4adc-b12e-5c5ad77cb486_61054f0e-5d70-4bf0-8bc4-9e830f18c3e9@unq.gbl.spaces/1703792317420?context=%7B%22contextType%22%3A%22chat%22%7D"-->
+        
+        <Grid Grid.Row="1" Margin="10,20,10,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <!--Added to display question number and heading-->
+            <Grid Grid.Row="0" Background="LavenderBlush" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2.3*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding TotalNoOfQuestions, StringFormat='Ques. 1 of {0}'}"  x:Name="QNo" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Grid.Column="1" Content="Question" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+
+            <!--- Added for questions -->
+            <Grid Grid.Row="1" Background="CadetBlue">
+                <TextBlock Text="{Binding Path=NextQuestion}" x:Name="Question" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Normal"/>
+            </Grid>
+
+            <!--- Added for answeroptions -->
+            <Grid Grid.Row="2" Background="AliceBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="{Binding Path=NextOptions[0]}" x:Name="Option1" Click="Option_Button_Clicked" Height="70" Width="300"  Margin="40,10,40,10"/>
+                    <Button Content="{Binding Path=NextOptions[1]}" x:Name="Option2" Click="Option_Button_Clicked" Height="70" Width="300"  Margin="0,10,40,10"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="{Binding Path=NextOptions[2]}" x:Name="Option3" Click="Option_Button_Clicked" Height="70" Width="300"  Margin="40,0,40,10"/>
+                    <Button Content="{Binding Path=NextOptions[3]}" x:Name="Option4" Click="Option_Button_Clicked" Height="70" Width="300" Margin="0,0,40,10"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="3" Background="Gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Button Content="Submit" x:Name="submit_button" Visibility="Visible" IsEnabled="True" Background="DarkSeaGreen" Click="Submit_Button_Clicked" FontWeight="Bold" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50" Width="250" Margin="5"/>
+                            <Button Content="Next Question" x:Name="nextquestion_button" Visibility="Hidden" IsEnabled="False" Background="DarkSeaGreen" Click="Next_Question_Button_Click" FontWeight="Bold" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50" Width="250" Margin="5"/>
+                        </Grid>
+                        <Button Grid.Column="1" Content="End Quiz" Background="Red" Click="End_Quiz_Button_Clicked" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center" Height="50" Width="250" Margin="5"/>
+                    </Grid>
+                                      
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="4" Background="GhostWhite">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="Result" FontSize="15" FontWeight="Bold" FontStyle="Oblique" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>
