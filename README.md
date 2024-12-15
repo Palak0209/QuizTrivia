@@ -3,7 +3,11 @@
 ## Overview
 
 The Quiz App is a feature-rich application built using Windows Presentation Foundation (WPF). It provides an engaging platform for users to test their knowledge by attempting quizzes. The app offers interactive features such as answer validation, skipping questions, game summary, and the ability to save results locally.
+
+**Quiz Questions**
 ![Quiz App Screenshot](QuizGame/Image/project3-1.jpg)
+
+**Final Result**
 ![Quiz App Screenshot](QuizGame/Image/project3-2.jpg)
 
 ## Features
